@@ -12,7 +12,7 @@ class HelloWorld(Resource):
     def get(self, id):
         element = movie.find_one({"_id": ObjectId(id)})
         element["_id"] = str(element["_id"])
-        return {'get' : element }
+        return {'movie' : element }
     
     def put(self, id):
         informations =  json.loads(request.data)
@@ -25,8 +25,8 @@ class HelloWorld(Resource):
 
     def post(self):
         informations =  json.loads(request.data)
-        test = movie.insert_one(informations)
-        return {'post' : test}
+        movie.insert_one(informations)
+        return {'post' : 'success'}
 
 api.add_resource(HelloWorld, '/', '/<string:id>')
 
