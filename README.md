@@ -1,24 +1,34 @@
 # TestsUnitaires
 
-> git clone https://github.com/elea77/projet-orm-api.git
+**Eléa Carton**
 
-> pip install -r requirements.txt
+```bash
+git clone https://github.com/elea77/projet-orm-api.git
+```
 
-
-## Windows
-
-### Créer l'environnement
-> py -3 -m venv venv
-### Activer l'environnement
-> venv\Scripts\activate
-### Lancer le serveur
-> py -3 app.py
 
 ## Mac OS
 
 ### Créer l'environnement
-> python3 -m venv venv
+```bash
+python3 -m venv venv
+```
 ### Activer l'environnement
-> . venv/bin/activate
+```bash
+. venv/bin/activate
+```
+
+### Installer les packages
+```bash
+pip install -r requirements.txt
+```
+
 ### Lancer le serveur
-> python3 app.py
+```bash
+python3 app.py
+```
+
+### Tests
+```bash
+python3 -m unittest Test.Test_Movie
+```
