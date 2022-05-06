@@ -16,17 +16,16 @@ class HelloWorld(Resource):
     
     def put(self, id):
         informations =  json.loads(request.data)
-        movie.update_one({ '_id': ObjectId(id) }, {'$set': {'title': informations['title'], 'description': informations['description'], 'duration': informations['duration'] }})
+        movie.update_one({ '_id': ObjectId(id) }, {'$set': informations})
         return {'id': str(id)}
 
     def delete(self, id):
-        element = movie.delete_one({"_id": ObjectId(id)})
-        # element["_id"] = str(element["_id"])
+        movie.delete_one({"_id": ObjectId(id)})
         return {'delete' :str(id)}
 
     def post(self):
         informations =  json.loads(request.data)
-        movie.insert_one( {'title': informations['title'], 'description': informations['description'], 'duration': informations['duration'] } )
+        movie.insert_one(informations)
         return {'post' : 'sucess'}
 
 api.add_resource(HelloWorld, '/', '/<string:id>')
