@@ -25,24 +25,10 @@ class HelloWorld(Resource):
 
     def post(self):
         informations =  json.loads(request.data)
-        movie.insert_one(informations)
-        return {'post' : 'sucess'}
+        test = movie.insert_one(informations)
+        return {'post' : test}
 
 api.add_resource(HelloWorld, '/', '/<string:id>')
-
-# request
-
-# get
-# requests.get('http://127.0.0.1:5000/62751ef9cc83db8478d76f4c').json()
-
-# put
-# requests.put('http://127.0.0.1:5000/62751ef9cc83db8478d76f4c', json = {"title": "The Batman","description":"bijour","duration":"2h40"}).json()
-
-# post
-# requests.post('http://127.0.0.1:5000/', json = {"title": "TEST","description":"bijour","duration":"2h40"})
-
-# delete
-# requests.delete('http://127.0.0.1:5000/62751ef9cc83db8478d76f4c')
 
 
 if __name__ == '__main__':
